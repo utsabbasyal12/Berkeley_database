@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berkeley_database", "Berkeley_database.csproj", "{DC6C27FC-D90F-4DA5-8E00-2A22D6F14B20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC6C27FC-D90F-4DA5-8E00-2A22D6F14B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6C27FC-D90F-4DA5-8E00-2A22D6F14B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6C27FC-D90F-4DA5-8E00-2A22D6F14B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6C27FC-D90F-4DA5-8E00-2A22D6F14B20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BBE4AD4-E8E7-4EF2-821F-7CDFE70D46EC}
+	EndGlobalSection
+EndGlobal
