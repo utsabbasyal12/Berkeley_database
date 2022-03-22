@@ -53,8 +53,8 @@
                     <li><a href="/Student.aspx">Student</a></li>
                     <li><a href="/Department.aspx">Department</a></li>
                     <li><a href="/Teacher.aspx">Teacher</a></li>
-                    <li><a href="#">Address</a></li>
-                    <li><a href="#">Module</a></li>
+                    <li><a href="/Address.aspx">Address</a></li>
+                    <li><a href="/Module.aspx">Module</a></li>
                   </ul>
                 </div>
               </div>
@@ -67,9 +67,9 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
                 <div>
                   <ul>
-                    <li><a href="#">Teacher-Module</a></li>
-                    <li><a href="#">Student-Fee</a></li>
-                    <li><a href="#">Student-Assignment</a></li>
+                    <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
+                    <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
+                    <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
                   </ul>
                 </div>
               </div>

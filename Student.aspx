@@ -51,10 +51,10 @@
                 <div>
                   <ul>
                     <li><a href="/Student.aspx">Student</a></li>
-                    <li><a href="#">Department</a></li>
-                    <li><a href="#">Teacher</a></li>
-                    <li><a href="#">Address</a></li>
-                    <li><a href="#">Module</a></li>
+                    <li><a href="/Department.aspx">Department</a></li>
+                    <li><a href="/Teacher.aspx">Teacher</a></li>
+                    <li><a href="/Address.aspx">Address</a></li>
+                    <li><a href="/Module.aspx">Module</a></li>
                   </ul>
                 </div>
               </div>
@@ -67,9 +67,9 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
                 <div>
                   <ul>
-                    <li><a href="#">Teacher-Module</a></li>
-                    <li><a href="#">Student-Fee</a></li>
-                    <li><a href="#">Student-Assignment</a></li>
+                    <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
+                    <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
+                    <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
                   </ul>
                 </div>
               </div>
@@ -86,7 +86,51 @@
 
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource1" Height="183px" Width="672px">
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource1" Width="365px">
+                <EditItemTemplate>
+                    STUDENT_ID:
+                    <asp:Label ID="STUDENT_IDLabel1" runat="server" Text='<%# Eval("STUDENT_ID") %>' />
+                    <br />
+                    STUDENT_NAME:
+                    <asp:TextBox ID="STUDENT_NAMETextBox" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
+                    <br />
+                    STUDENT_EMAIL:
+                    <asp:TextBox ID="STUDENT_EMAILTextBox" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
+                    <br />
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary"  />
+                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-warning" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    STUDENT_ID:
+                    <asp:TextBox ID="STUDENT_IDTextBox" runat="server" Text='<%# Bind("STUDENT_ID") %>' />
+                    <br />
+                    STUDENT_NAME:
+                    <asp:TextBox ID="STUDENT_NAMETextBox0" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
+                    <br />
+                    STUDENT_EMAIL:
+                    <asp:TextBox ID="STUDENT_EMAILTextBox0" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
+                    <br />
+                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary" />
+                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-warning"  />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    STUDENT_ID:
+                    <asp:Label ID="STUDENT_IDLabel" runat="server" Text='<%# Eval("STUDENT_ID") %>' />
+                    <br />
+                    STUDENT_NAME:
+                    <asp:Label ID="STUDENT_NAMELabel" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
+                    <br />
+                    STUDENT_EMAIL:
+                    <asp:Label ID="STUDENT_EMAILLabel" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
+                    <br />
+                    <br />
+                    <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" />
+                    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"/>
+                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" CssClass="btn btn-success" />
+                </ItemTemplate>
+            </asp:FormView>
+            <br />
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource1" Height="183px" Width="672px" CssClass="table">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
@@ -109,54 +153,13 @@
                     <asp:Parameter Name="STUDENT_ID" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource1">
-                <EditItemTemplate>
-                    STUDENT_ID:
-                    <asp:Label ID="STUDENT_IDLabel1" runat="server" Text='<%# Eval("STUDENT_ID") %>' />
-                    <br />
-                    STUDENT_NAME:
-                    <asp:TextBox ID="STUDENT_NAMETextBox" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
-                    <br />
-                    STUDENT_EMAIL:
-                    <asp:TextBox ID="STUDENT_EMAILTextBox" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
-                    <br />
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary"  />
-                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-warning" />
-                </EditItemTemplate>
-                <InsertItemTemplate>
-                    STUDENT_ID:
-                    <asp:TextBox ID="STUDENT_IDTextBox" runat="server" Text='<%# Bind("STUDENT_ID") %>' />
-                    <br />
-                    STUDENT_NAME:
-                    <asp:TextBox ID="STUDENT_NAMETextBox" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
-                    <br />
-                    STUDENT_EMAIL:
-                    <asp:TextBox ID="STUDENT_EMAILTextBox" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
-                    <br />
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-warning"  />
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    STUDENT_ID:
-                    <asp:Label ID="STUDENT_IDLabel" runat="server" Text='<%# Eval("STUDENT_ID") %>' />
-                    <br />
-                    STUDENT_NAME:
-                    <asp:Label ID="STUDENT_NAMELabel" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
-                    <br />
-                    STUDENT_EMAIL:
-                    <asp:Label ID="STUDENT_EMAILLabel" runat="server" Text='<%# Bind("STUDENT_EMAIL") %>' />
-                    <br />
-                    <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" CssClass="btn btn-primary" />
-                    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"/>
-                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" CssClass="btn btn-success" />
-                </ItemTemplate>
-            </asp:FormView>
         </div>
     </form>
               </div>
         </div>
       </div>
     </main>
+              
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
