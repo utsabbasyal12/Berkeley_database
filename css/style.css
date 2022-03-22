@@ -49,7 +49,7 @@ aside, main {
 
 aside {
   width: 300px;
-  left: 0;
+  left: 221px;
   z-index: 1001;
   position: fixed;
   -webkit-transform: translateX(-100%);
@@ -60,7 +60,9 @@ aside {
   transition: 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
   -o-transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1);
   transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1);
-  transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1), 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1); }
+  transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1), 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
+    top: 334px;
+}
   .show-sidebar aside {
     -webkit-transform: translateX(0%);
     -ms-transform: translateX(0%);
@@ -116,16 +118,16 @@ aside {
       margin: 0px;
       list-style: none; }
     aside .side-inner .nav-menu ul li a {
-      display: block;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 10px 30px;
+    display: block;
       color: #8b8b8b;
       position: relative;
       -webkit-transition: .3s padding-left ease;
       -o-transition: .3s padding-left ease;
-      transition: .3s padding-left ease; }
+      transition: .3s padding-left ease;
+    top: 5px;
+    left: 1px;
+}
       aside .side-inner .nav-menu ul li a:before {
         content: "";
         position: absolute;
