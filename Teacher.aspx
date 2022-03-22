@@ -42,42 +42,43 @@
 
         
         <div class="nav-menu">
-          <ul>
-              <li><a href="#"><span class="icon-home mr-3 active"></span>Home</a></li>
-            <li class="accordion">
-              <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
-                <span class="icon-home mr-3"></span>Simple Form
-              </a>
-              <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                <div>
-                  <ul>
-                    <li><a href="/Student.aspx">Student</a></li>
-                    <li><a href="/Department.aspx">Department</a></li>
-                    <li><a href="/Teacher.aspx">Teacher</a></li>
-                    <li><a href="/Address.aspx">Address</a></li>
-                    <li><a href="/Module.aspx">Module</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="accordion">
-              <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
-                <span class="icon-home mr-3"></span>Complex Form
-              </a>
+            <ul>
+                <li><a href="/Home.aspx"><span class="icon-home mr-3 active"></span>Home</a></li>
+			<br />
+                <li class="accordion">
+                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
+                        <span class="icon-home mr-3"></span>Simple Form
+                    </a>
+                    <br />
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                        <div>
+                            <ul>
+                                <li><a href="/Student.aspx">Student</a></li>
+                                <li><a href="/Department.aspx">Department</a></li>
+                                <li><a href="/Teacher.aspx">Teacher</a></li>
+                                <li><a href="/Address.aspx">Address</a></li>
+                                <li><a href="/Module.aspx">Module</a></li><br />
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
+                        <span class="icon-home mr-3"></span>Complex Form
+                    </a>
+                    <br />
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
+                        <div>
+                            <ul>
+                                <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
+                                <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
+                                <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
-                <div>
-                  <ul>
-                    <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
-                    <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
-                    <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
-                  </ul>
-                </div>
-              </div>
-
-            </li>
-            <li><a href="#"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
-          </ul>
+                </li>
+            </ul>
         </div>
       </div>
       
@@ -88,6 +89,9 @@
           <div class="row justify-content-center">
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="Label1" runat="server" Text="Label"><h1>Teacher Table</h1></asp:Label>
+            <br />
+            <br />
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="TEACHER_ID" DataSourceID="SqlDataSource1" Class="table">
                 <EditItemTemplate>
                     TEACHER_ID:
@@ -95,11 +99,11 @@
                     <br />
                     TEACHER_NAME:
                     <asp:TextBox ID="TEACHER_NAMETextBox" runat="server" Text='<%# Bind("TEACHER_NAME") %>' />
-                    <asp:RegularExpressionValidator ID="regexStudentName" runat="server" ControlToValidate="TEACHER_NAMETextBox" ErrorMessage="*Student Name can only contain characters" ForeColor="Red" ValidationExpression="^[a-zA-Z ]*$" Font-Size="X-Small"></asp:RegularExpressionValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Student Name cannot be blank" ControlToValidate="TEACHER_NAMETextBox" ForeColor="Red" Font-Size="X-Small"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Teacher Name cannot be blank" ControlToValidate="TEACHER_NAMETextBox" ForeColor="Red" Font-Size="Small"></asp:RequiredFieldValidator>
                     <br />
                     TEACHER_EMAIL:
                     <asp:TextBox ID="TEACHER_EMAILTextBox" runat="server" Text='<%# Bind("TEACHER_EMAIL") %>' />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TEACHER_EMAILTextBox" ErrorMessage="*Email cannot be blank" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-warning" />
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" />
@@ -111,9 +115,11 @@
                     <br />
                     TEACHER_NAME:
                     <asp:TextBox ID="TEACHER_NAMETextBox" runat="server" Text='<%# Bind("TEACHER_NAME") %>' />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TEACHER_NAMETextBox" ErrorMessage="Teacher Name is Required" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     TEACHER_EMAIL:
                     <asp:TextBox ID="TEACHER_EMAILTextBox" runat="server" Text='<%# Bind("TEACHER_EMAIL") %>' />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TEACHER_EMAILTextBox" ErrorMessage="Teacher Email Must Required" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-secondary" />
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger" />
@@ -159,10 +165,12 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </form>
-               </div>
+              
+ </div>
         </div>
       </div>  
     </main>
+    
      <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

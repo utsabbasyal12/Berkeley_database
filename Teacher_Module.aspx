@@ -40,56 +40,63 @@
           <span class="country">College Database</span>
         </div>
 
+        
         <div class="nav-menu">
-          <ul>
-              <li><a href="#"><span class="icon-home mr-3 active"></span>Home</a></li>
-            <li class="accordion">
-              <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
-                <span class="icon-home mr-3"></span>Simple Form
-              </a>
-              <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                <div>
-                  <ul>
-                    <li><a href="/Student.aspx">Student</a></li>
-                    <li><a href="/Department.aspx">Department</a></li>
-                    <li><a href="/Teacher.aspx">Teacher</a></li>
-                    <li><a href="/Address.aspx">Address</a></li>
-                    <li><a href="/Module.aspx">Module</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li class="accordion">
-              <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
-                <span class="icon-home mr-3"></span>Complex Form
-              </a>
+            <ul>
+                <li><a href="/Home.aspx"><span class="icon-home mr-3 active"></span>Home</a></li>
+			<br />
+                <li class="accordion">
+                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
+                        <span class="icon-home mr-3"></span>Simple Form
+                    </a>
+                    <br />
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                        <div>
+                            <ul>
+                                <li><a href="/Student.aspx">Student</a></li>
+                                <li><a href="/Department.aspx">Department</a></li>
+                                <li><a href="/Teacher.aspx">Teacher</a></li>
+                                <li><a href="/Address.aspx">Address</a></li>
+                                <li><a href="/Module.aspx">Module</a></li><br />
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="accordion">
+                    <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
+                        <span class="icon-home mr-3"></span>Complex Form
+                    </a>
+                    <br />
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
+                        <div>
+                            <ul>
+                                <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
+                                <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
+                                <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
-                <div>
-                  <ul>
-                    <li><a href="/Teacher_Module.aspx">Teacher-Module</a></li>
-                    <li><a href="/Student_Fee.aspx">Student-Fee</a></li>
-                    <li><a href="/Student_Assignment.aspx">Student-Assignment</a></li>
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li><a href="#"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
-          </ul>
+                </li>
+            </ul>
         </div>
       </div>
+      
     </aside>
-     <main>
+    <main>
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
 
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="Label1" runat="server" Text="Label"><h1>Teacher-Module Table</h1></asp:Label>
+            <br />
+            <br />
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;TEACHER_NAME&quot; FROM &quot;TEACHER&quot; "></asp:SqlDataSource>
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="TEACHER_NAME" DataValueField="TEACHER_NAME" CssClass="table">
             </asp:DropDownList>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TEACHER_EMAIL" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TEACHER_EMAIL" DataSourceID="SqlDataSource1" CssClass="table">
                 <Columns>
                     <asp:BoundField DataField="TEACHER_ID" HeaderText="TEACHER_ID" SortExpression="TEACHER_ID" />
                     <asp:BoundField DataField="TEACHER_NAME" HeaderText="TEACHER_NAME" SortExpression="TEACHER_NAME" />

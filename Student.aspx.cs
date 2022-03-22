@@ -13,5 +13,10 @@ namespace Berkeley_database
         {
 
         }
+
+        protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
+        {
+
+        }
     }
 }
